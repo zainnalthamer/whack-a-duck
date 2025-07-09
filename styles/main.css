@@ -17,3 +17,15 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+body {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.winText {
+    margin-left: 230px;
+}
+
+.score {
+    margin-left: 230px;
+}
