@@ -2,6 +2,7 @@ function init() {
     const gridElem = document.querySelector(".grid");
     const scoreElem = document.querySelector(".score");
     const winElem = document.querySelector(".winText");
+    const soundElem = document.querySelector(".clickSound");
 
     const cells = [];
     const gridWidth = 10;
@@ -30,6 +31,8 @@ function init() {
         if(event.target.classList.contains('duck')) {
             score += 10;
             scoreElem.textContent = 'Score: '+score;
+            soundElem.currentTime = 0;
+            soundElem.play();
 
             if(score >= 100) {
                 winElem.textContent = 'You win!';
