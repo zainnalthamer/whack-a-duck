@@ -11,3 +11,9 @@
     height: 58px;
     border: 1px solid black;
 }
+
+.duck {
+    background-image: url('../assets/Duck.avif');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
