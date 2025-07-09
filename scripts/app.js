@@ -10,9 +10,11 @@ function init() {
     
     let duckPosition = 37;
     let score = 0;
+    let totalDucks = 0;
 
     function addDuck() {
         cells[duckPosition].classList.add('duck');
+        totalDucks++;
     }
 
     function removeDuck() {
@@ -21,9 +23,12 @@ function init() {
 
     function play() {
         setInterval(() => {
-            removeDuck();
-            duckPosition = Math.floor(Math.random() * numberOfCells);
-            cells[duckPosition].classList.add('duck');
+            if(totalDucks < 10) {
+                removeDuck();
+                duckPosition = Math.floor(Math.random() * numberOfCells);
+                cells[duckPosition].classList.add('duck');
+            }
+            
         }, 1600);
     }
 
@@ -31,11 +36,18 @@ function init() {
         if(event.target.classList.contains('duck')) {
             score += 10;
             scoreElem.textContent = 'Score: '+score;
+            soundElem.pause;
             soundElem.currentTime = 0;
             soundElem.play();
 
             if(score >= 100) {
                 winElem.textContent = 'You win!';
+
+                setTimeout(() => {
+                    score = 0;
+                    scoreElem.textContent = 'Score: 0';
+                    winElem.textContent = '';
+                }, 2000);
             }
         }
         
